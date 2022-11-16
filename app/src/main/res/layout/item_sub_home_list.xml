@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.home.HomeResponseData" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10ssp"
+        android:orientation="vertical">
+
+        <com.marwadibrothers.mbstatus.weidget.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/black_dot"
+            app:riv_border_color="@color/grey"
+            app:riv_border_width="@dimen/_1sdp"
+            app:riv_corner_radius="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/date_bg"
+            android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+            android:padding="@dimen/_3sdp"
+                android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_6ssp" />
+
+        <TextView
+            android:id="@+id/txtEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_minus4sdp"
+            android:text="@{model.subCategoryName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_8ssp" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData" />
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/llFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/llUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_11ssp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_3sdp">
+
+                    <TextView
+                        android:id="@+id/txtBusinessName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/popin_bold"
+                        android:includeFontPadding="false"
+                        android:shadowColor="#BFFFFFFF"
+                        android:text="@{models.fullName}"
+                        android:textColor="#153e7e"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtAddres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llUp"
+                    android:layout_marginLeft="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_minus3sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:shadowColor="#BFFFFFFF"
+                    android:text="@{model.businessAddress}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9sdp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_social"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_11sdp"
+                    android:layout_below="@+id/txtAddres"
+                    android:layout_marginLeft="@dimen/_110sdp"
+                    android:layout_marginRight="@dimen/_40sdp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:includeFontPadding="false"
+                        android:text="Follow Us:"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_fb"
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:src="@drawable/fb_icon_2" />
+
+                        <TextView
+                            android:id="@+id/txtfbname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@{models.facebookUsername}"
+                            android:textColor="#da3f76"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_insta"
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:src="@drawable/insta_icon_2" />
+
+                        <TextView
+                            android:id="@+id/txtinstaname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@{models.instagramUsername}"
+                            android:textColor="#da3f76"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_yt"
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:src="@drawable/ytb_icon_2" />
+
+                        <TextView
+                            android:id="@+id/txtytname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@{models.youtubeUsername}"
+                            android:textColor="#da3f76"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_wa"
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:src="@drawable/wa_icon_2" />
+
+                        <TextView
+                            android:id="@+id/txtwaname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@{models.whatsappUsername}"
+                            android:textColor="#da3f76"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_below="@+id/line"
+                android:layout_alignBottom="@+id/llFooter"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/profile"
+                app:civ_border_color="@color/yellow"
+                app:civ_border_width="1dp" />
+
+            <TextView
+                android:id="@+id/txtMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:background="@drawable/footer_round_half"
+                android:backgroundTint="@color/txt_footer_color"
+                android:drawableLeft="@drawable/ic_cal"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/yellow"
+                android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/_15ssp"
+                android:paddingTop="@dimen/_1sdp"
+                android:paddingRight="@dimen/_15ssp"
+                android:paddingBottom="@dimen/_1sdp"
+                android:text="@{model.businessPhoneNo}"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/_6ssp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.marwadibrothers.mbstatus">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".base.App"
+        android:allowBackup="true"
+        android:icon="@drawable/mb_logo"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/mb_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MbStatus"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon">
+        <activity
+            android:name=".activity.editing.PlanPopupActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+        <activity android:name=".activity.editing.DemoActivity"></activity>
+        <activity
+            android:name=".activity.editing.GreetingBannerEditingActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".activity.editing.TextEditingActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".activity.editing.ImageEditingActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".activity.UpdatProfileActivity" />
+        <activity android:name=".activity.PackageActivity" />
+        <activity
+            android:name=".activity.BannerEditingActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".activity.SubCategoryActivity" />
+        <activity android:name=".activity.BusinessProfileActivity" />
+        <activity android:name=".activity.ProfileMakeActivity" />
+        <activity android:name=".activity.OtpActivity" />
+        <activity android:name=".activity.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".activity.CustomFrameDemoActivity" />
+
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".firebase.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

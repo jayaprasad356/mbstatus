@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_1sdp"
+    android:orientation="vertical">
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ambientShadowAlpha="50"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:spotShadowAlpha="50"
+        app:cardUseCompatPadding="true">-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap_shadow">
+
+        <ImageView
+            android:id="@+id/ivCustomFrameDemoImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_1sdp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+    <!--    </androidx.cardview.widget.CardView>-->
+
+    <TextView
+        android:id="@+id/tvCustomFrameDemoCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_minus9sdp"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/main_color"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <com.marwadibrothers.mbstatus.weidget.circleview.CircleImageView
+                android:id="@+id/ivfooterLogo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+
+                android:visibility="visible"
+                app:civ_border_color="#4E0F0F"
+                app:civ_border_width="@dimen/_2sdp" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/footer_round_half"
+                android:backgroundTint="@color/txt_footer_color"
+                android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+                android:gravity="center"
+                android:minWidth="@dimen/_80sdp"
+                android:paddingLeft="@dimen/_15ssp"
+                android:paddingTop="@dimen/_1sdp"
+                android:paddingRight="@dimen/_15ssp"
+                android:paddingBottom="@dimen/_1sdp"
+                android:text="@{models.fullName}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">Mb Status</string>
+    <string name="Notification">Notification</string>
+    <string name="Edit_Frame">Edit Frame</string>
+    <string name="Powered_by">Powered by</string>
+    <string name="Send_otp">Send Otp</string>
+    <string name="Submit">Submit</string>
+    <string name="Enter_otp">Enter Otp Here</string>
+    <string name="Marwadi_Brothers">Marwadi Brothers</string>
+    <string name="Mobile_no">Mobile No.</string>
+    <string name="Profile_make">Make Your Profile</string>
+    <string name="Downloaded">Downloaded</string>
+    <string name="Account">Account</string>
+    <string name="Business_List">Business List</string>
+    <string name="Business">Business</string>
+    <string name="Personal">Personal</string>
+    <string name="Add_Account">Add Business</string>
+    <string name="Update_Profile">My Profile</string>
+    <string name="Update_Profile_1">Business Profile</string>
+    <string name="Subscription_Plan">Subscription Plan</string>
+    <string name="Select_Package">Select Package</string>
+    <string name="Language">Language</string>
+    <string name="Privacy_Policy">Privacy Policy</string>
+    <string name="Terms_Condition">Terms &amp; Condition</string>
+    <string name="Share_App">Share App</string>
+    <string name="Contact_Us">Contact Us</string>
+    <string name="Logout">Logout</string>
+    <string name="Rateus">Rate us</string>
+    <string name="Premium_Features">Premium Features</string>
+    <string name="Company_Logo">Company<br />Logo</string>
+    <string name="Business_Profile_make">Make Business Profile</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="EMail">Email</string>
+    <string name="BusinessEMail">Business Email</string>
+    <string name="your_address">Your Address</string>
+    <string name="Company_address">Company Address</string>
+    <string name="Organization_Name">Company Organization Name</string>
+    <string name="Company_Contact">Company Contact No</string>
+    <string name="Your_Designation">Your Designation</string>
+    <string name="Company_Designation">Company Website (optional)</string>
+    <string name="UserName_Facebook">Facebook User Name</string>
+    <string name="UserName_Twitter">Twitter User Name</string>
+    <string name="UserName_Instagram">Instagram Username</string>
+    <string name="UserName_Linkedin">Linkedin Username</string>
+    <string name="UserName_Whatsapp">Whatsapp Username</string>
+    <string name="UserName_Telegram">Telegram Username</string>
+    <string name="UserName_Youtube">Youtube Username</string>
+    <string name="Back">Back</string>
+    <string name="Valid_MObile_NUmber">Enter Valid Mobile Number</string>
+    <string name="Valid_Otp">Enter Valid Otp</string>
+    <string name="please_check_internet_connection">Please check your internet connection.</string>
+    <string name="Resend_otp">If you not get otp <a href=''>resend</a> now.</string>
+    <string name="link_social">Select tag to link social account</string>
+    <string name="Your_Business">Your Business</string>
+    <string name="Business_Name">Business Name</string>
+    <string name="Text">Text</string>
+    <string name="Image">Image</string>
+    <string name="custom_banner">Custom Banner</string>
+    <string name="custom_frame_demo">Custom Frame</string>
+    <string name="custom_frame_demo_title">Custom Frame Demo</string>
+    <string name="contact">Contact</string>
+    <string name="Upcoming_Event">Upcoming Event</string>
+    <string name="Daily_Event">Daily Image</string>
+    <string name="Greetings">Greetings</string>
+    <string name="Others">Others</string>
+    <string name="double_tap">Double tap to edit</string>
+    <string name="Buy_Now">Buy Now</string>
+    <string name="select_font">Select font</string>
+    <string name="select_color">Select color</string>
+    <string name="ok">Ok</string>
+    <string name="Add_Logo">Add Logo</string>
+    <string name="Add_Image">Add Image</string>
+    <string name="cancel">cancel</string>
+    <string name="Month">Month</string>
+    <string name="Year">Year</string>
+    <string name="Plan_Selected">Plan Selected</string>
+    <!--//////////-->
+    <string name="Facebook">Facebook</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Instagram">Instagram</string>
+    <string name="Linkedin">Linkedin</string>
+    <string name="Whatsapp">Whatsapp</string>
+    <string name="Telegram">Telegram</string>
+    <string name="Youtube">Youtube</string>
+    <string name="Footer_Style_1">Footer Style 1</string>
+    <string name="Footer_Style_2">Footer Style 2</string>
+    <string name="Footer_Style_3">Footer Style 3</string>
+    <string name="Footer_Style_4">Footer Style 4</string>
+    <string name="Footer_Style_5">Footer Style 5</string>
+    <!--//////////-->
+    <string name="Enter_FullName">Enter Valid Full Name</string>
+    <string name="Enter_Mail">Enter Valid Mail</string>
+    <string name="Enter_Address">Enter Valid Address</string>
+    <string name="Enter_Copmany">Enter Valid Copmany Name</string>
+    <string name="Enter_Designation">Enter Valid Designation</string>
+    <string name="Enter_Contact">Enter Valid Contact No.</string>
+    <string name="Enter_Socail">Attempt Any Four Social Media Account</string>
+    <string name="Select_image">Select Profile Picture</string>
+    <string name="successfully_downloaded_Image">Image downloaded successfully in gallery</string>
+    <string name="what_do_you">What do you want ?</string>
+    <string name="which_color">Which color you want to change ?</string>
+    <string name="what_footer">What you want to do with footer color ?</string>
+    <string name="Background">Background</string>
+
+    <string name="Text_Color">Text Color</string>
+    <string name="Background_Color">Background Color</string>
+    <!--/////////////////-->
+    <string name="Are_you_sure">Are you sure?</string>
+    <string name="Are_you_sure_delete">You want to delete this business?</string>
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="LOADING">Loading…</string>
+    <string name="Somethingswrong">something went wrong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display">DisplayActivity</string>
+    <string name="action_complete">Complete</string>
+    <string name="double_click_input_text">Double-click to enter text</string>
+    <string name="add_sticker">Add stickers</string>
+    <string name="add_bubble">Add bubbles</string>
+    <string name="complete">Complete</string>
+    <string name="publish_comment">Say something……</string>
+    <string name="over_text_limit">You have exceeded the word limit</string>
+    <string name="mail" translatable="false">com.mbstatus@gmail.com</string>
+    <string name="CommingSoon">Comming Soon...</string>
+    <string name="profile_alert_string">Profile and Business details are must for Editing Frame</string>
+    <string name="profile_alert_string_1">Profile details are must for Editing Frame</string>
+    <string name="profile_alert_string_2">Business details are must for Editing Frame</string>
+    <string name="update_alert_1">Update Available</string>
+    <string name="update_alert_2">Updated to new version</string>
+    <string name="update_alert_3">Bug fixes and performance improvements</string>
+    <string name="update_alert_now">Update Now</string>
+    <string name="update_alert_later">Update Later</string>
+    <string name="add_business_detail">Add Business Detail</string>
+    <string name="add_profile_detail">Add Profile Detail</string>
+    <string name="write_email">Write Email</string>
+    <string name="mobile_no">1234567890</string>
+    <string name="show_ad">Show Ad</string>
+    <string name="buy_peremium">Buy Premium</string>
+    <string name="default_notification_channel_id">default_channel</string>
+
+    // Custom frame demo
+    <string name="contact_now_whatsapp">अब अपनी मनचाही पर्सनल एवं पॉलिटिकल फ्रेम डिजाइन बनवाएं Contact Now Whatsapp</string>
+
+    <string name="admob_app_id">ca-app-pub-1315895965193877~5119569782</string>
+    <string name="interstitial_full_screen">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="banner_home_footer">ca-app-pub-1315895965193877/381069414</string>
+    <string name="video_ad">ca-app-pub-1315895965193877/3855915840</string>
+    <string name="facebook_interstitial_Ad">495222752185510_495307808843671</string>
+<!--    <string name="facebook_rewarded_Ad">495222752185510_557880839253034</string>-->
+    <string name="facebook_rewarded_Ad">495222752185510_566255895082195</string>
+
+<!--        <string name="interstitial_ads">ca-app-pub-3940256099942544/1033173712</string> \\testing-->
+    <string name="interstitial_ads">ca-app-pub-1315895965193877/5887977651</string> \\live
+<!--    <string name="rewarded_ads">ca-app-pub-3940256099942544/5224354917</string> \\testing-->
+        <string name="rewarded_ads">ca-app-pub-1315895965193877/9060935903</string> \\live
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string><!--
+    <string name="interstitial_full_screen">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_home_footer">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="video_ad">ca-app-pub-3940256099942544/5224354917</string>-->
+
+    <string name="profile_intruction">*बेहतर बैनर / पोस्टर बनाने के लिए सुझाव :-</string>
+    <string name="profile_intruction1">1.कृपया जानकारी हिंदी में भरें |</string>
+    <string name="profile_intruction2">2.प्रोफाइल इमेज .png(बैकग्राउंड हटाकर) अपलोड करें |</string>
+    <string name="profile_intruction3">3.प्रोफाइल इमेज 2MB से ज्यादा का अपलोड नहीं करें |</string>
+
+    <!--new string-->
+    <string name="signup_login_msg">By Continue you indicate that you\nhave read and agree to the <a href="http://mbstatus.in/Terms-and-conditions.html">Terms of Services</a></string>
+</resources>

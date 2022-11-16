@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.home.DailyImagesSection" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/daily_img_bg"
+        android:orientation="vertical">
+
+        <com.marwadibrothers.mbstatus.weidget.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/the_jungle_adventure"
+            app:riv_border_color="@color/grey"
+            app:riv_border_width="@dimen/_1sdp"
+            app:riv_corner_radius_bottom_left="@dimen/_20sdp"
+            app:riv_corner_radius_top_left="@dimen/_20sdp" />
+
+
+        <TextView
+            android:id="@+id/txtEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+
+            android:layout_toRightOf="@+id/imageView"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+            android:gravity="center"
+            android:maxLines="3"
+            android:padding="@dimen/_5sdp"
+            android:lineSpacingExtra="@dimen/_minus4sdp"
+            android:text="@{model.subCategoryName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp" />
+
+
+    </RelativeLayout>
+</layout>

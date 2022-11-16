@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData" />
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txtCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popin_bold"
+                    android:lineSpacingExtra="@dimen/_minus4sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{model.businessName}"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_11ssp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llSubthreeFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/footer_color"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp">
+
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/txtMail"
+                    android:src="@drawable/ic_email"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/txtMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_weight=".5"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:lineSpacingExtra="@dimen/_minus4sdp"
+                    android:text="@{model.businessEmail}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_6ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:src="@drawable/ic_cal"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/txtMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_weight=".5"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:lineSpacingExtra="@dimen/_minus4sdp"
+                        android:text="@{model.businessPhoneNo}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_6ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right">
+
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_toLeftOf="@+id/textWebsite"
+                            android:src="@drawable/ic_globe"
+                            app:tint="@color/white" />
+
+
+                        <TextView
+                            android:id="@+id/textWebsite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:lineSpacingExtra="@dimen/_minus4sdp"
+                            android:text="@{model.businessWebsite}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

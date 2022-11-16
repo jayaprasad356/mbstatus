@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData" />
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/footer_seven_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_2sdp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/popin_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="@dimen/_80sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingTop="@dimen/_1sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_1sdp"
+                android:text="@{models.fullName}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:src="@drawable/ic_cal"
+                    app:tint="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/txtMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_weight=".5"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="@dimen/_minus4sdp"
+                    android:text="@{model.businessPhoneNo}"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_7ssp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

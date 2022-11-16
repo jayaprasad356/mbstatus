@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loading"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_150sdp"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="10dp"
+    android:layout_marginHorizontal="@dimen/_20sdp">
+
+
+    <ImageView
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/error_center_x"
+        android:id="@+id/iv_close"
+        android:layout_alignParentRight="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:gravity="center">
+
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Personal Profile"
+                android:textStyle="bold"
+                android:id="@+id/rb_pp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"/>
+
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Business Profile"
+                android:textStyle="bold"
+                android:id="@+id/rb_bus"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"/>
+
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>

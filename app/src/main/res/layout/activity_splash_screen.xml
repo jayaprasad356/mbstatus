@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_md"
+        tools:context=".activity.SplashScreenActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/mb_logo"
+                android:id="@+id/ivlogo"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-35dp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:src="@drawable/statusapp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+                android:text="@string/Powered_by"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/txtTagname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/noto_serif_devanagari_condensed_bold"
+                android:text="@string/Marwadi_Brothers"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_15ssp" />
+
+            <View
+                android:layout_width="@dimen/_135sdp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:background="@color/blue" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

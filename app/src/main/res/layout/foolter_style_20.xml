@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData" />
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txtCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popin_bold"
+                    android:lineSpacingExtra="@dimen/_minus4sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{model.businessName}"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_11ssp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@color/white"
+                    android:visibility="invisible"/>
+
+                <LinearLayout
+                    android:id="@+id/llSubthreeFooter"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/txtMail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:lineSpacingExtra="@dimen/_minus4sdp"
+                            android:text="@{model.businessPhoneNo}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:id="@+id/textWebsite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_3sdp"
+                                android:layout_marginRight="@dimen/_3sdp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="center_vertical"
+                                android:lineSpacingExtra="@dimen/_minus4sdp"
+                                android:text="@{model.businessWebsite}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_6ssp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/txtMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_weight=".5"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:lineSpacingExtra="@dimen/_minus4sdp"
+                            android:text="@{model.businessEmail}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_6ssp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@color/white"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</layout>

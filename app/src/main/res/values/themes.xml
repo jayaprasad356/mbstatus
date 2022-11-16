@@ -1,0 +1,75 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MbStatus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="colorPrimaryVariant">@color/main_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/main_color</item>
+        <item name="colorSecondaryVariant">@color/main_color</item>
+        <item name="colorOnSecondary">@color/main_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="txtBtn">
+        <item name="android:layout_width">@dimen/_125sdp</item>
+        <item name="android:layout_height">@dimen/_32sdp</item>
+        <item name="android:background">@drawable/btn_bg</item>
+        <item name="android:fontFamily">@font/noto_serif_devanagari_condensed_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:textColor">@color/white</item>
+
+
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_bottom_dialog</item>
+    </style>
+
+    <style name="dialog_blue_button" parent="android:Widget.Button">
+
+        <item name="android:layout_width">wrap_content</item>
+
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:background">@drawable/blue_button_background</item>
+
+
+        <item name="android:paddingLeft">21dp</item>
+
+        <item name="android:paddingRight">21dp</item>
+
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:fontFamily">@font/noto_serif_devanagari_condensed_medium</item>
+    </style>
+
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+
+        <item name="android:windowIsFloating">true</item>
+
+        <item name="android:windowIsTranslucent">false</item>
+
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowBackground">@color/float_transparent</item>
+
+        <item name="android:windowAnimationStyle">@null</item>
+
+        <item name="android:backgroundDimEnabled">true</item>
+
+        <item name="android:backgroundDimAmount">0.4</item>
+
+    </style>
+</resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData" />
+
+        <variable
+            name="models"
+            type="com.marwadibrothers.mbstatus.models.profille.MyProfileResponseData" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/llFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/llUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_11ssp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_1sdp">
+
+                    <TextView
+                        android:id="@+id/txtBusinessName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_weight=".5"
+                        android:fontFamily="@font/popin_bold"
+                        android:gravity="center"
+                        android:text="@{models.fullName}"
+                        android:textColor="@color/txt_footer_color"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/txtMobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/footer_round_half"
+                        android:backgroundTint="#030141"
+                        android:drawableLeft="@drawable/ic_cal"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableTint="@color/yellow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_15ssp"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingRight="@dimen/_15ssp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:text="@{model.businessPhoneNo}"
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/_7ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llUp"
+                    android:background="@color/ten_footer_color"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/_50sdp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:src="@drawable/ic_home_address"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llUp"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingRight="@dimen/_3sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:text="@{models.address}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9ssp" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginBottom="666dp"
+                android:background="@drawable/white_dot">
+
+                <com.marwadibrothers.mbstatus.weidget.circleview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_below="@+id/line"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/profile"
+                    app:civ_border_color="@color/yellow"
+                    app:civ_border_width="1dp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>
