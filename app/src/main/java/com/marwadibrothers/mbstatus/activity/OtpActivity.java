@@ -142,9 +142,40 @@ public class OtpActivity extends AppCompatActivity {
                 HideMobileView();
             }
         });
-        binding.tvResend.setOnClickListener(v ->
 
-                getOtp(true));
+
+        binding.tvResend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.tvwaiting.setVisibility(View.VISIBLE);
+                binding.tvResend.setVisibility(View.GONE);
+
+                getOtp(true);
+                new CountDownTimer(30000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        binding.Timer.setText(""+millisUntilFinished/1000);
+                        //here you can have your logic to set text to edittext
+                    }
+
+                    public void onFinish() {
+                        binding.tvwaiting.setVisibility(View.GONE);
+                        binding.tvResend.setVisibility(View.VISIBLE);
+                    }
+
+                }.start();
+
+            }
+        });
+
+
+
+
+
+
+
+
         binding.tvHelp.setOnClickListener(v -> {
             showDialog();
         });
