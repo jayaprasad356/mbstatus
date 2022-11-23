@@ -10,11 +10,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,11 +72,15 @@ public class OtpActivity extends AppCompatActivity {
     private ApiInterface apiInterface, apiInterface1;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
+
+
+
         initviews();
         Config.OTP = getRandomNumberString();
         Log.d("TAG", "onCreate: -=--==->>>OTP>>>"+ Config.OTP);
@@ -119,10 +125,26 @@ public class OtpActivity extends AppCompatActivity {
                 new SharedPreferencesHelper(context).setString(Config.USER_NO, Config.Mobile_No);
                 getOtp(false);
                 // SENdOTP();
+
+                new CountDownTimer(30000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        binding.Timer.setText(""+millisUntilFinished/1000);
+                        //here you can have your logic to set text to edittext
+                    }
+
+                    public void onFinish() {
+                        binding.tvwaiting.setVisibility(View.GONE);
+                        binding.tvResend.setVisibility(View.VISIBLE);
+                    }
+
+                }.start();
                 HideMobileView();
             }
         });
-        binding.tvResend.setOnClickListener(v -> getOtp(true));
+        binding.tvResend.setOnClickListener(v ->
+
+                getOtp(true));
         binding.tvHelp.setOnClickListener(v -> {
             showDialog();
         });
@@ -317,6 +339,7 @@ public class OtpActivity extends AppCompatActivity {
     private void GetUserPlanList() {
         Config.Mobile_No = binding.edtMobile.getText().toString();
         RequestBody fcm_token = RequestBody.create(FCM_TOKEN, MediaType.parse("text/plain"));
+
         Log.d("fdkfj", "fjdfh" + FCM_TOKEN);
         Log.d("fdkfj", "fjdfh" + fcm_token);
 
@@ -325,10 +348,12 @@ public class OtpActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Log.d("OTP_RES",response.body() + "");
                 Helper.cancel_loader();
                 try {
                     if (response.isSuccessful()) {
                         JSONObject jsonObject = new JSONObject(response.body().string());
+
                         Toast.makeText(context, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                         if (jsonObject.getBoolean("status")) {
 
@@ -356,14 +381,21 @@ public class OtpActivity extends AppCompatActivity {
                             Log.d("hdjshdjh", "hhah    " + Config.Mobile_No);
                             new SharedPreferencesHelper(context).setString(Config.USER_ID, jsonObject.getJSONObject("data").getString("user_id"));
                             new SharedPreferencesHelper(context).setBoolean(Config.IS_LOGIN, true);
-                            startActivity(new Intent(context, MainActivity.class));
+                            if (jsonObject.getJSONObject("data").getBoolean("new_user")){
+                                startActivity(new Intent(context, ProfileMakeActivity.class));
+
+                            }else {
+                                startActivity(new Intent(context, MainActivity.class));
+                            }
+
+
                             finish();
                         } else {
                             new SharedPreferencesHelper(context).setString(Config.USER_ID, jsonObject.getJSONObject("data").getString("user_id"));
                             new SharedPreferencesHelper(context).setBoolean(Config.IS_LOGIN, true);
                             Config.Mobile_No = binding.edtMobile.getText().toString();
                             Log.d("hdjshdjh", "hhah" + Config.Mobile_No);
-                            //startActivity(new Intent(context, ProfileMakeActivity.class).putExtra(Config.MOBILE, binding.edtMobile.getText().toString()));
+                           // startActivity(new Intent(context, ProfileMakeActivity.class).putExtra(Config.MOBILE, binding.edtMobile.getText().toString()));
                             startActivity(new Intent(context, MainActivity.class));
                             finish();
                         }

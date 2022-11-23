@@ -281,7 +281,7 @@ public class BannerEditingActivity extends AppCompatActivity implements TextEdit
 
         dialog.setContentView(R.layout.profile_alert_dialog);
         dialog.getWindow().setGravity(Gravity.CENTER);
-        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(false);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -879,7 +879,8 @@ public class BannerEditingActivity extends AppCompatActivity implements TextEdit
         profileDialog = new Dialog(context);
         profileDialog.setContentView(R.layout.profileselect_alert_dialog);
         profileDialog.getWindow().setGravity(Gravity.CENTER);
-        profileDialog.setCanceledOnTouchOutside(true);
+        profileDialog.setCanceledOnTouchOutside(false);
+        profileDialog.setCancelable(false);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(profileDialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

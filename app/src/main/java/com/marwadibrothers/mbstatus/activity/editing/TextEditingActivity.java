@@ -150,7 +150,7 @@ public class TextEditingActivity extends AppCompatActivity implements TextEditor
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.profile_alert_dialog);
         dialog.getWindow().setGravity(Gravity.CENTER);
-        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(false);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

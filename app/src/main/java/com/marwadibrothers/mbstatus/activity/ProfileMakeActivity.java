@@ -215,6 +215,15 @@ public class ProfileMakeActivity extends AppCompatActivity implements Profilebtn
         new ProfileSupport(binding.ProfilSupport, false, Config.SIGNUP, context, this);
         binding.ProfilSupport.toolbarSupport.ivBack.setVisibility(View.GONE);
         binding.ProfilSupport.toolbarSupport.txttitle.setText(R.string.Profile_make);
+        binding.ProfilSupport.txtSkip.setVisibility(View.VISIBLE);
+        binding.ProfilSupport.txtSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileMakeActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
@@ -239,7 +248,6 @@ public class ProfileMakeActivity extends AppCompatActivity implements Profilebtn
             }
         }
         if (requestCode == 102) {
-
             if (resultCode == RESULT_OK) {
                 Uri resultUri = data.getData();
 
@@ -329,15 +337,18 @@ public class ProfileMakeActivity extends AppCompatActivity implements Profilebtn
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
                 if (response.isSuccessful()) {
                     Helper.cancel_loader();
+
                     try {
                         String responseString = response.body().string();
+                        Log.d("PROFILE_RES",responseString);
                         Config.isProfileDone=true;
                         //Toast.makeText(context, new JSONObject(responseString).getString("message"), Toast.LENGTH_SHORT).show();
                         if (new JSONObject(responseString).getBoolean("status")) {
-                            preferencesHelper.setString(Config.USER_ID, new JSONObject(responseString).getJSONObject("data").getString("user_id"));
-                            //startActivity(new Intent(context, BusinessProfileActivity.class).putExtra(Config.FROM, Config.ADD_BUSINESS));
+                            //preferencesHelper.setString(Config.USER_ID, new JSONObject(responseString).getJSONObject("data").getString("user_id"));
+                            startActivity(new Intent(context, MainActivity.class));
                             finish();
                         }
                     } catch (Exception e) {
