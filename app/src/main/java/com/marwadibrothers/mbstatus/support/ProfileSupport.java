@@ -402,6 +402,7 @@ public class ProfileSupport {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .setOutputCompressFormat(Bitmap.CompressFormat.PNG)
+                .setOutputCompressQuality(50)
                 .setAspectRatio(1,1)
                 .start(activity);
 
