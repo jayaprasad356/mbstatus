@@ -412,7 +412,7 @@ public class OtpActivity extends AppCompatActivity {
                             Log.d("hdjshdjh", "hhah    " + Config.Mobile_No);
                             new SharedPreferencesHelper(context).setString(Config.USER_ID, jsonObject.getJSONObject("data").getString("user_id"));
                             new SharedPreferencesHelper(context).setBoolean(Config.IS_LOGIN, true);
-                            if (jsonObject.getJSONObject("data").getBoolean("new_user")){
+                            if (jsonObject.getJSONObject("data").getString("full_name").equals("")){
                                 startActivity(new Intent(context, ProfileMakeActivity.class));
 
                             }else {
