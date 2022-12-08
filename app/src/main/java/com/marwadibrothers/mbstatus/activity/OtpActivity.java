@@ -70,7 +70,7 @@ public class OtpActivity extends AppCompatActivity {
     private String mVerificationId;
     private FirebaseAuth mAuth;
     private ApiInterface apiInterface, apiInterface1;
-
+     String authKey,mob,countryCode,sId,oTp,Company;
 
 
     @Override
@@ -80,15 +80,60 @@ public class OtpActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
 
 
-
         initviews();
         Config.OTP = getRandomNumberString();
-        Log.d("TAG", "onCreate: -=--==->>>OTP>>>"+ Config.OTP);
+        Log.d("TAG", "onCreate: -=--==->>>OTP>>>" + Config.OTP);
 //https://www.fast2sms.com/dev/bulkV2?authorization=WRAs6QvxhXZzcfHlpnDm1d5bE9GqiwYNToKuLjCMP4OkSyV78UvYOHZTaMlpAItxfJzU5ojED1WuV7P8&variables_values=1111&route=otp&numbers=7096219885
         Clickevents();
 
         apiInterface1 = RetrofitClientOTP.getRetrofitInstance(this).create(ApiInterface.class);
         //getOtp();
+    }
+
+    private void sendOtp() {
+        authKey = "3057d2af0685d53c";
+        countryCode="+91";
+        sId="5750";
+        oTp="12345";
+        Company="MbStatus";
+
+        apiInterface = RetrofitClient.getRetrofitInstance(this).create(ApiInterface.class);
+
+        Call<ResponseBody> call = apiInterface.sendOtp(mob,countryCode,sId,oTp,Company);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Helper.cancel_loader();
+                if (response.isSuccessful()) {
+                    try {
+                        if (response.isSuccessful()) {
+                            JSONObject jsonObject = new JSONObject(response.body().string());
+                            if (jsonObject.getBoolean("status")) {
+
+                                Log.d("OTP", "jdsjdsj" + jsonObject.getString("message"));
+                                // Toast.makeText(context,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(context, getString(R.string.Somethingswrong), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    } catch (Exception e) {
+                        Helper.cancel_loader();
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    Helper.cancel_loader();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Helper.cancel_loader();
+                Log.d("SignUpPhoneVerify", "onFailure: " + t.getMessage() + "_____" + t.getCause());
+            }
+        });
     }
 
     private void Clickevents() {
@@ -119,6 +164,8 @@ public class OtpActivity extends AppCompatActivity {
         binding.txtSendOtp.setOnClickListener(v -> {
             hideKeyboard(this);
             if (Isvalid()) {
+                mob=binding.edtMobile.getText().toString();
+                sendOtp();
                 if (binding.edtMobile.getText().toString().equals("8128809990"))
                     Config.OTP = "123456";
                 Config.Mobile_No = binding.edtMobile.getText().toString();
@@ -129,7 +176,7 @@ public class OtpActivity extends AppCompatActivity {
                 new CountDownTimer(30000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        binding.Timer.setText(""+millisUntilFinished/1000);
+                        binding.Timer.setText("" + millisUntilFinished / 1000);
                         //here you can have your logic to set text to edittext
                     }
 
@@ -155,7 +202,7 @@ public class OtpActivity extends AppCompatActivity {
                 new CountDownTimer(30000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        binding.Timer.setText(""+millisUntilFinished/1000);
+                        binding.Timer.setText("" + millisUntilFinished / 1000);
                         //here you can have your logic to set text to edittext
                     }
 
@@ -168,12 +215,6 @@ public class OtpActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
 
 
         binding.tvHelp.setOnClickListener(v -> {
@@ -379,7 +420,7 @@ public class OtpActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Log.d("OTP_RES",response.body() + "");
+                Log.d("OTP_RES", response.body() + "");
                 Helper.cancel_loader();
                 try {
                     if (response.isSuccessful()) {
@@ -412,10 +453,10 @@ public class OtpActivity extends AppCompatActivity {
                             Log.d("hdjshdjh", "hhah    " + Config.Mobile_No);
                             new SharedPreferencesHelper(context).setString(Config.USER_ID, jsonObject.getJSONObject("data").getString("user_id"));
                             new SharedPreferencesHelper(context).setBoolean(Config.IS_LOGIN, true);
-                            if (jsonObject.getJSONObject("data").getString("full_name").equals("")){
+                            if (jsonObject.getJSONObject("data").getString("full_name").equals("")) {
                                 startActivity(new Intent(context, ProfileMakeActivity.class));
 
-                            }else {
+                            } else {
                                 startActivity(new Intent(context, MainActivity.class));
                             }
 
@@ -426,7 +467,7 @@ public class OtpActivity extends AppCompatActivity {
                             new SharedPreferencesHelper(context).setBoolean(Config.IS_LOGIN, true);
                             Config.Mobile_No = binding.edtMobile.getText().toString();
                             Log.d("hdjshdjh", "hhah" + Config.Mobile_No);
-                           // startActivity(new Intent(context, ProfileMakeActivity.class).putExtra(Config.MOBILE, binding.edtMobile.getText().toString()));
+                            // startActivity(new Intent(context, ProfileMakeActivity.class).putExtra(Config.MOBILE, binding.edtMobile.getText().toString()));
                             startActivity(new Intent(context, MainActivity.class));
                             finish();
                         }

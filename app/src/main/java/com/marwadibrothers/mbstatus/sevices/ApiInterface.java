@@ -64,7 +64,7 @@ public interface ApiInterface {
 
 
     @GET("user/get_home_screen_data")
-    Call<ResponseBody> get_home_screen_data(@Query("user_id")String user_id,@Query("fcm_token")String fcm_token);
+    Call<ResponseBody> get_home_screen_data(@Query("user_id") String user_id, @Query("fcm_token") String fcm_token);
 
     @GET("user/get_greeting_products")
     Call<ResponseBody> get_greeting_products();
@@ -104,7 +104,7 @@ public interface ApiInterface {
 
     @Multipart
     @POST("user/send_otp")
-    Call<ResponseBody> send_otp(@Part("mobile_number") RequestBody mobile_number,@Part("fcm_token") RequestBody fcm_token);
+    Call<ResponseBody> send_otp(@Part("mobile_number") RequestBody mobile_number, @Part("fcm_token") RequestBody fcm_token);
 
     @Multipart
     @POST("user/my_profile")
@@ -132,7 +132,7 @@ public interface ApiInterface {
     @Multipart
     @POST("user/edit_profile")
     Call<ResponseBody> edit_profile(@Part("user_id") RequestBody user_id,
-                                    @Part("fcm_token") RequestBody fcm_token,@Part("designation") RequestBody designation, @Part("full_name") RequestBody full_name, @Part("email") RequestBody email
+                                    @Part("fcm_token") RequestBody fcm_token, @Part("designation") RequestBody designation, @Part("full_name") RequestBody full_name, @Part("email") RequestBody email
             , @Part("address") RequestBody address, @Part("company_org_name") RequestBody company_org_name
             , @Part("facebook_username") RequestBody facebook_username, @Part("twitter_username") RequestBody twitter_username
             , @Part("instagram_username") RequestBody instagram_username, @Part("linkedin_username") RequestBody linkedin_username
@@ -161,18 +161,23 @@ public interface ApiInterface {
     @Multipart
     @POST("user/view_product")
     Call<ResponseBody> viewProduct(@Part("user_id") RequestBody user_id,
-                                        @Part("sub_category_id") RequestBody sub_category_id,
-                                        @Part("product_id") RequestBody product_id);
+                                   @Part("sub_category_id") RequestBody sub_category_id,
+                                   @Part("product_id") RequestBody product_id);
 
     @Multipart
     @POST("user/sub_category_open")
     Call<ResponseBody> openSubCat(@Part("sub_category_id") RequestBody sub_category_id);
 
+    @GET("request?authkey=3057d2af0685d53c")
+    Call<ResponseBody> sendOtp(@Query("mobile") String mobile, @Query("country_code") String country_code,@Query("sid") String sid, @Query("otp") String otp,@Query("company") String company);
+
+
     /*-----------------plans api-----------------*/
     @GET("user/get_plan_list")
     Call<PlanResponse> get_plan_list();
 
-    @GET("user/get_payment_list") // get Razorpay key
+    @GET("user/get_payment_list")
+        // get Razorpay key
     Call<PaymentResponse> get_payment_list();
 
     @Multipart

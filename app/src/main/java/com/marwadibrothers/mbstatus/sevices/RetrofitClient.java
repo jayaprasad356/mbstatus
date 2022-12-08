@@ -11,7 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    public static final String BASE_URL = "http://mbstatus.in/admin/api/";
+    //public static final String BASE_URL = "http://mbstatus.in/admin/api/";
+    public static final String BASE_URL = "https://api.authkey.io/";
     //public static final String BASE_URL = "http://mbstatus.royalample.in/admin/api/";
     private static Retrofit retrofit;
     private static Retrofit QbRetrofit;
