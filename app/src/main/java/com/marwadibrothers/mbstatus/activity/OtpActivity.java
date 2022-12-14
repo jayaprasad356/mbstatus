@@ -40,6 +40,7 @@ import com.marwadibrothers.mbstatus.models.OtpModel;
 import com.marwadibrothers.mbstatus.models.buiness.BusinessResponseData;
 import com.marwadibrothers.mbstatus.sevices.ApiInterface;
 import com.marwadibrothers.mbstatus.sevices.RetrofitClient;
+import com.marwadibrothers.mbstatus.sevices.RetrofitClient2;
 import com.marwadibrothers.mbstatus.sevices.RetrofitClientOTP;
 import com.marwadibrothers.mbstatus.storage.SharedPreferencesHelper;
 import com.marwadibrothers.mbstatus.utils.Config;
@@ -56,6 +57,7 @@ import es.dmoral.toasty.Toasty;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,7 +72,7 @@ public class OtpActivity extends AppCompatActivity {
     private String mVerificationId;
     private FirebaseAuth mAuth;
     private ApiInterface apiInterface, apiInterface1;
-     String authKey,mob,countryCode,sId,oTp,Company;
+     String authKey,mob,countryCode,sId,Company;
 
 
     @Override
@@ -94,12 +96,11 @@ public class OtpActivity extends AppCompatActivity {
         authKey = "3057d2af0685d53c";
         countryCode="+91";
         sId="5750";
-        oTp="12345";
         Company="MbStatus";
 
-        apiInterface = RetrofitClient.getRetrofitInstance(this).create(ApiInterface.class);
+        apiInterface = RetrofitClient2.getRetrofitInstance(this).create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiInterface.sendOtp(mob,countryCode,sId,oTp,Company);
+        Call<ResponseBody> call = apiInterface.sendOtp(mob,countryCode,sId,Config.OTP,Company);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -170,7 +171,7 @@ public class OtpActivity extends AppCompatActivity {
                     Config.OTP = "123456";
                 Config.Mobile_No = binding.edtMobile.getText().toString();
                 new SharedPreferencesHelper(context).setString(Config.USER_NO, Config.Mobile_No);
-                getOtp(false);
+                //getOtp(false);
                 // SENdOTP();
 
                 new CountDownTimer(30000, 1000) {
@@ -198,7 +199,8 @@ public class OtpActivity extends AppCompatActivity {
                 binding.tvwaiting.setVisibility(View.VISIBLE);
                 binding.tvResend.setVisibility(View.GONE);
 
-                getOtp(true);
+                //getOtp(true);
+                sendOtp();
                 new CountDownTimer(30000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -409,13 +411,12 @@ public class OtpActivity extends AppCompatActivity {
 
 
     private void GetUserPlanList() {
+        apiInterface = RetrofitClient.getRetrofitInstance(this).create(ApiInterface.class);
+
         Config.Mobile_No = binding.edtMobile.getText().toString();
         RequestBody fcm_token = RequestBody.create(FCM_TOKEN, MediaType.parse("text/plain"));
-
-        Log.d("fdkfj", "fjdfh" + FCM_TOKEN);
-        Log.d("fdkfj", "fjdfh" + fcm_token);
-
         RequestBody mobile_number = RequestBody.create((binding.edtMobile.getText().toString()), MediaType.parse("text/plain"));
+        Log.d("USERPLAN_LIST",bodyToString(mobile_number).toString());
         Call<ResponseBody> call = apiInterface.send_otp(mobile_number, fcm_token);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -491,6 +492,19 @@ public class OtpActivity extends AppCompatActivity {
                 Log.d("sghg", "onFailure: " + t.getMessage() + "_____" + t.getCause());
             }
         });
+    }
+    private String bodyToString(final RequestBody request) {
+        try {
+            final RequestBody copy = request;
+            final Buffer buffer = new Buffer();
+            if (copy != null)
+                copy.writeTo(buffer);
+            else
+                return "";
+            return buffer.readUtf8();
+        } catch (final IOException e) {
+            return "did not work";
+        }
     }
 
 }
