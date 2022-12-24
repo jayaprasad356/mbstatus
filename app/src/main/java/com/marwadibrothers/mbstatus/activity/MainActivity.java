@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initviews();
         Log.e("User_Id", new SharedPreferencesHelper(context).getString(Config.USER_ID));
+
         GetUserPlanData();
         new GetUserCustomFramesApi(MainActivity.this, null);
         initAcc();
@@ -949,7 +950,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             Glide.with(context).load(Config.IMG_PATH + model.getSubCategoryImage()).into(binding.imageView);
-            binding.getRoot().setOnClickListener(v -> startActivity(new Intent(context, SubCategoryActivity.class).putExtra(SUB_CAT_ID, model.getSubCategoryId()).putExtra(SUB_CAT_NAME, model.getSubCategoryName()).putExtra(Config.FROM, NORMAL)));
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, SubCategoryActivity.class).putExtra(SUB_CAT_ID, model.getSubCategoryId()).putExtra(SUB_CAT_NAME, model.getSubCategoryName()).putExtra(Config.FROM, NORMAL));
+                }
+            });
         });
     }
 
@@ -962,7 +968,7 @@ public class MainActivity extends AppCompatActivity {
             ItemSubDimgListBinding binding = (ItemSubDimgListBinding) viewDataBinding;
             FearuredImageData model = responseData.get(position);
             binding.setModel(model);
-            if (model.getProduct_type().equals("FREE")) {
+            if (model.getProduct_type().equals("FREE") || new SharedPreferencesHelper(context).getBoolean(Config.Buy_Plan)) {
                 binding.rlPremium.setVisibility(View.GONE);
             } else {
                 binding.rlPremium.setVisibility(View.VISIBLE);
@@ -987,7 +993,7 @@ public class MainActivity extends AppCompatActivity {
             }*/
             Glide.with(context).load(Config.IMG_PATH + model.getProduct_image()).into(binding.imageView);
             binding.getRoot().setOnClickListener(v -> {
-                if (model.getProduct_type().equals("FREE")) {
+                if (model.getProduct_type().equals("FREE") || new SharedPreferencesHelper(context).getBoolean(Config.Buy_Plan)) {
                     /*if (getIntent().getStringExtra((Config.FROM)).equals(Config.GREETING) || model.getDisplay_section().equalsIgnoreCase("GREETINGS")) {
                         startActivity(new Intent(context, GreetingBannerEditingActivity.class)
                                 .putExtra(Config.IMAGE_URL, Config.IMG_PATH + model.getProduct_image())
@@ -1018,14 +1024,14 @@ public class MainActivity extends AppCompatActivity {
             ItemSubDimgListBinding binding = (ItemSubDimgListBinding) viewDataBinding;
             FearuredImageData model = responseData.get(position);
             binding.setModel(model);
-            if (model.getProduct_type().equals("FREE")) {
+            if (model.getProduct_type().equals("FREE") || new SharedPreferencesHelper(context).getBoolean(Config.Buy_Plan)) {
                 binding.rlPremium.setVisibility(View.GONE);
             } else {
                 binding.rlPremium.setVisibility(View.VISIBLE);
             }
             Glide.with(context).load(Config.IMG_PATH + model.getProduct_image()).into(binding.imageView);
             binding.getRoot().setOnClickListener(v -> {
-                if (model.getProduct_type().equals("FREE")) {
+                if (model.getProduct_type().equals("FREE") || new SharedPreferencesHelper(context).getBoolean(Config.Buy_Plan)) {
                     startActivity(new Intent(context, GreetingBannerEditingActivity.class)
                             .putExtra(Config.IMAGE_URL, Config.IMG_PATH + model.getProduct_image())
                             .putExtra(Config.PRODUCT_ID, model.getProduct_id())
@@ -1077,8 +1083,14 @@ public class MainActivity extends AppCompatActivity {
             ItemSubGreetingBinding binding = (ItemSubGreetingBinding) viewDataBinding;
             GreetingListResponse model = greetingListResponses.get(position);
             binding.setModel(model);
-
-            binding.getRoot().setOnClickListener(v -> startActivity(new Intent(context, SubCategoryActivity.class).putExtra(SUB_CAT_ID, model.getSubCategoryId()).putExtra(SUB_CAT_NAME, model.getSubCategoryName()).putExtra(Config.FROM, GREETING)));
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, SubCategoryActivity.class).
+                            putExtra(SUB_CAT_ID, model.getSubCategoryId()).
+                            putExtra(SUB_CAT_NAME, model.getSubCategoryName()).putExtra(Config.FROM, GREETING));
+                }
+            });
             Glide.with(context).load(Config.IMG_PATH + model.getSubCategoryImage()).into(binding.imageView);
 
         });

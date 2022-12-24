@@ -267,6 +267,7 @@ public class BannerEditingActivity extends AppCompatActivity implements TextEdit
 
             dialog.dismiss();
         }
+        selectProfile="personal";
         GetUserPlanList();
         GetProductData();
         Config.isFb = new SharedPreferencesHelper(context).getBoolean(Config.isFbs);
@@ -299,11 +300,13 @@ public class BannerEditingActivity extends AppCompatActivity implements TextEdit
         if(selectProfile.equals("personal") && profileEmpty){
             tvText.setText(getString(R.string.profile_alert_string_1));
             tvPABusiness.setVisibility(View.GONE);
+            ivPAClose.setVisibility(View.VISIBLE);
         }
 
         if(selectProfile.equals("business") && businessEmpty){
             tvText.setText(getString(R.string.profile_alert_string_2));
             tvPAProfile.setVisibility(View.GONE);
+            ivPAClose.setVisibility(View.VISIBLE);
         }
         tvPABusiness.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -787,6 +790,7 @@ public class BannerEditingActivity extends AppCompatActivity implements TextEdit
                     try {
                         if (response.isSuccessful()) {
                             JSONObject jsonObject = new JSONObject(response.body().string());
+                            Log.d("BANNER_EDIT",jsonObject.toString());
                             // Toast.makeText(context, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                             if (jsonObject.getBoolean("status")) {
                                 if ((jsonObject.getJSONObject("data").getJSONArray("business_list").length() != 0)) {

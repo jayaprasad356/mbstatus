@@ -469,6 +469,7 @@ public class GreetingBannerEditingActivity extends AppCompatActivity implements 
         tvPAProfile = dialog.findViewById(R.id.tvPAProfile);
         tvPABusiness = dialog.findViewById(R.id.tvPABusiness);
         tvText = dialog.findViewById(R.id.tvText);
+        ivPAClose.setVisibility(View.VISIBLE);
 
         if (selectProfile.equals("personal") && profileEmpty) {
             tvText.setText(getString(R.string.profile_alert_string_1));
