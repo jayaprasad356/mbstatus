@@ -19,6 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MbStatus"
         android:usesCleartextTraffic="true"
+        android:exported="true"
+        tools:targetApi="31"
         tools:replace="android:icon">
         <activity
             android:name=".activity.editing.PlanPopupActivity"
@@ -26,40 +28,57 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id" />
+            android:value="@string/admob_app_id"
+            />
 
-        <activity android:name=".activity.editing.DemoActivity"></activity>
+        <activity android:name=".activity.editing.DemoActivity"
+            android:exported="false" ></activity>
         <activity
             android:name=".activity.editing.GreetingBannerEditingActivity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="false" />
         <activity
             android:name=".activity.editing.TextEditingActivity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="false" />
         <activity
             android:name=".activity.editing.ImageEditingActivity"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".activity.NotificationActivity" />
-        <activity android:name=".activity.UpdatProfileActivity" />
-        <activity android:name=".activity.PackageActivity" />
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="false" />
+        <activity android:name=".activity.NotificationActivity"
+            android:exported="false" />
+        <activity android:name=".activity.UpdatProfileActivity"
+            android:exported="false" />
+        <activity android:name=".activity.PackageActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.BannerEditingActivity"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".activity.SubCategoryActivity" />
-        <activity android:name=".activity.BusinessProfileActivity" />
-        <activity android:name=".activity.ProfileMakeActivity" />
-        <activity android:name=".activity.OtpActivity" />
-        <activity android:name=".activity.SplashScreenActivity">
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="false" />
+        <activity android:name=".activity.SubCategoryActivity"
+            android:exported="false" />
+        <activity android:name=".activity.BusinessProfileActivity"
+            android:exported="false" />
+        <activity android:name=".activity.ProfileMakeActivity"
+            android:exported="false" />
+        <activity android:name=".activity.OtpActivity"
+            android:exported="false" />
+        <activity android:name=".activity.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.MainActivity"
+            android:exported="false" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".activity.CustomFrameDemoActivity" />
+            android:theme="@style/Base.Theme.AppCompat"
+            android:exported="false" />
+        <activity android:name=".activity.CustomFrameDemoActivity"
+            android:exported="false" />
 
         <service
             android:name=".firebase.MyFirebaseMessagingService"
@@ -69,7 +88,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".firebase.MyFirebaseInstanceIdService">
+        <service android:name=".firebase.MyFirebaseInstanceIdService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
